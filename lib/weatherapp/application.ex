@@ -5,10 +5,17 @@ defmodule Weatherapp.Application do
 
   use Application
 
+  @spec start(any, any) :: {:error, any} | {:ok, pid}
   def start(_type, _args) do
+
+    import Supervisor.Spec, warn: false
+
     children = [
-      # Starts a worker by calling: Weatherapp.Worker.start_link(arg)
-      # {Weatherapp.Worker, arg}
+      Plug.Cowboy.child_spec(
+        scheme: :http,
+        plug: Weatherapp.Endpoint,
+        options: [port: 4001]
+      )
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
