@@ -1,11 +1,13 @@
-defmodule Weatherapp.Service.OpenWeatherMap do
+defmodule Weatherapp.Service.Providers.OpenWeatherMap do
   @moduledoc """
     Gets the weather information at Open Weather Map
   """
 
+  @behaviour Weatherapp.Service.WeatherProvider
+
   require Logger
 
-  @spec get_weather :: {:ok, nil | Weatherapp.Records.Weather.t()}
+  @impl Weatherapp.Service.WeatherProvider
   def get_weather do
     case request() do
       {:ok, response} ->

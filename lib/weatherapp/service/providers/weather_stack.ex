@@ -1,11 +1,13 @@
-defmodule Weatherapp.Service.WeatherStack do
+defmodule Weatherapp.Service.Providers.WeatherStack do
   @moduledoc """
     Calls the get /weather endpoint at weatherstack
   """
 
+  @behaviour Weatherapp.Service.WeatherProvider
+
   require Logger
 
-  @spec get_weather :: {:ok, nil | Weatherapp.Records.Weather.t()}
+  @impl Weatherapp.Service.WeatherProvider
   def get_weather do
     case request() do
       {:ok, response} ->

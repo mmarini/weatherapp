@@ -2,17 +2,24 @@ defmodule Weatherapp.EndpointTest do
   @moduledoc """
     test
   """
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   use Plug.Test
 
+  alias Weatherapp.Cache.Cache
   alias Weatherapp.Endpoint
 
   @opts Endpoint.init([])
 
-  describe "/" do
+  describe "/weather" do
     test "it returns 200 with a message" do
       # Create a test connection
-      conn = conn(:get, "/", %{})
+      conn = conn(:get, "/weather", %{})
+
+      # Add weather to the cache
+      record = %Weatherapp.Records.Weather{temperature_degrees: 50, wind_speed: 50}
+
+      Cache.start()
+      Cache.insert(record)
 
       # Invoke the plug
       conn = Endpoint.call(conn, @opts)

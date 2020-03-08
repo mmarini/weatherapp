@@ -4,6 +4,8 @@ defmodule Weatherapp.Endpoint do
   matching routes, and dispatching responses.
   """
 
+  alias Weatherapp.Service.WeatherService
+
   use Plug.Router
 
   # Log request information
@@ -17,9 +19,12 @@ defmodule Weatherapp.Endpoint do
   # dispath responses
   plug :dispatch
 
-  get "/" do
+  get "/weather" do
+
+    {:ok, result} = WeatherService.get_weather()
+
     conn
-    |> send_resp(200, "Weather goes here")
+    |> send_resp(200, Poison.encode!(result))
   end
 
   match _ do

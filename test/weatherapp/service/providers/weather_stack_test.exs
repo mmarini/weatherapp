@@ -1,4 +1,4 @@
-defmodule Weatherapp.Service.WeatherStackTest do
+defmodule Weatherapp.Service.Providers.WeatherStackTest do
   @moduledoc """
     Tests for the weatherstack service
   """
@@ -6,7 +6,7 @@ defmodule Weatherapp.Service.WeatherStackTest do
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  alias Weatherapp.Service.WeatherStack
+  alias Weatherapp.Service.Providers.WeatherStack
 
   setup_all do
     HTTPoison.start

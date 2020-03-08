@@ -1,4 +1,4 @@
-defmodule Weatherapp.Service.OpenWeatherMapTest do
+defmodule Weatherapp.Service.Providers.OpenWeatherMapTest do
   @moduledoc """
     Tests for the Open Weather Map service
   """
@@ -6,7 +6,7 @@ defmodule Weatherapp.Service.OpenWeatherMapTest do
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  alias Weatherapp.Service.OpenWeatherMap
+  alias Weatherapp.Service.Providers.OpenWeatherMap
 
   setup_all do
     HTTPoison.start

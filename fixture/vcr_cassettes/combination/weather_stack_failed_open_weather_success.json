@@ -1,0 +1,59 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.weatherstack.com/current?access_key=7061fa1a5793f0cd889270def&query=Melbourne"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"success\":false,\"error\":{\"code\":101,\"type\":\"invalid_access_key\",\"info\":\"You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]\"}}",
+      "headers": {
+        "Date": "Sun, 08 Mar 2020 07:35:47 GMT",
+        "Content-Type": "application/json; Charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=da3936bd020f5e93e20767615aaa771441583652947; expires=Tue, 07-Apr-20 07:35:47 GMT; path=/; domain=.weatherstack.com; HttpOnly; SameSite=Lax",
+        "x-apilayer-transaction-id": "28e0664a-a9d0-415b-8a8d-3750376543d5",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-origin": "*",
+        "x-request-time": "0.012",
+        "CF-Cache-Status": "DYNAMIC",
+        "Server": "cloudflare",
+        "CF-RAY": "570ae1a959dcf8f3-NRT"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.openweathermap.org/data/2.5/weather?q=melbourne,AU&units=metric&appId=a7fbbdc4bf260fee1ca701b555778060"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"coord\":{\"lon\":144.96,\"lat\":-37.81},\"weather\":[{\"id\":802,\"main\":\"Clouds\",\"description\":\"scattered clouds\",\"icon\":\"03d\"}],\"base\":\"stations\",\"main\":{\"temp\":19.16,\"feels_like\":13.73,\"temp_min\":17.22,\"temp_max\":21.11,\"pressure\":1019,\"humidity\":59},\"visibility\":10000,\"wind\":{\"speed\":8.2,\"deg\":130},\"clouds\":{\"all\":40},\"dt\":1583652699,\"sys\":{\"type\":1,\"id\":9548,\"country\":\"AU\",\"sunrise\":1583611903,\"sunset\":1583657428},\"timezone\":39600,\"id\":2158177,\"name\":\"Melbourne\",\"cod\":200}",
+      "headers": {
+        "Server": "openresty",
+        "Date": "Sun, 08 Mar 2020 07:35:48 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "473",
+        "Connection": "keep-alive",
+        "X-Cache-Key": "/data/2.5/weather?appId=a7fbbdc4bf260fee1ca701b555778060&q=melbourne,au&units=metric",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
