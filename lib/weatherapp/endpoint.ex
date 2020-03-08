@@ -19,7 +19,7 @@ defmodule Weatherapp.Endpoint do
 
   get "/" do
     conn
-    |> send_resp(200, "fetching weather info!")
+    |> send_resp(200, "Weather goes here")
   end
 
   match _ do

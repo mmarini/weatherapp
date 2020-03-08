@@ -1,4 +1,8 @@
 defmodule WeatherappTest do
+  @moduledoc """
+    test
+  """
+
   use ExUnit.Case
   doctest Weatherapp
 

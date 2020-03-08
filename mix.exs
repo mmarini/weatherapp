@@ -24,7 +24,9 @@ defmodule Weatherapp.MixProject do
     [
       {:plug_cowboy, "~> 2.1"},
       {:poison, "~> 4.0"},
-      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
+      {:httpoison, "~> 1.6"},
+      {:exvcr, "~> 0.11.1", only: :test},
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
     ]
   end
 end

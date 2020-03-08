@@ -1,0 +1,32 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.weatherstack.com/current?access_key=7061fa1a579a309e3d3f0cd889270def&query=Idonotexist"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"success\":false,\"error\":{\"code\":615,\"type\":\"request_failed\",\"info\":\"Your API request failed. Please try again or contact support.\"}}",
+      "headers": {
+        "Date": "Sun, 08 Mar 2020 03:57:05 GMT",
+        "Content-Type": "application/json; Charset=UTF-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Set-Cookie": "__cfduid=dc0a7df413cab5fdcf6abda389a7fa3311583639825; expires=Tue, 07-Apr-20 03:57:05 GMT; path=/; domain=.weatherstack.com; HttpOnly; SameSite=Lax",
+        "x-apilayer-transaction-id": "a1955620-beb7-4121-b19c-95fa9c748b7c",
+        "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+        "access-control-allow-origin": "*",
+        "x-request-time": "0.440",
+        "CF-Cache-Status": "DYNAMIC",
+        "Server": "cloudflare",
+        "CF-RAY": "5709a14b6cdaf8bb-NRT"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

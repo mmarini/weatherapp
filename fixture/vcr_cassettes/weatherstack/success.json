@@ -1,0 +1,32 @@
+[
+    {
+      "request": {
+        "body": "",
+        "headers": [],
+        "method": "get",
+        "options": [],
+        "request_body": "",
+        "url": "http://api.weatherstack.com/current?access_key=7061fa1a579a309e3d3f0cd889270def&query=Melbourne"
+      },
+      "response": {
+        "binary": false,
+        "body": "{\"request\":{\"type\":\"City\",\"query\":\"Melbourne, Australia\",\"language\":\"en\",\"unit\":\"m\"},\"location\":{\"name\":\"Melbourne\",\"country\":\"Australia\",\"region\":\"Victoria\",\"lat\":\"-37.817\",\"lon\":\"144.967\",\"timezone_id\":\"Australia\\/Melbourne\",\"localtime\":\"2020-03-08 14:26\",\"localtime_epoch\":1583677560,\"utc_offset\":\"11.0\"},\"current\":{\"observation_time\":\"03:26 AM\",\"temperature\":20,\"weather_code\":116,\"weather_icons\":[\"https:\\/\\/assets.weatherstack.com\\/images\\/wsymbols01_png_64\\/wsymbol_0002_sunny_intervals.png\"],\"weather_descriptions\":[\"Partly cloudy\"],\"wind_speed\":13,\"wind_degree\":190,\"wind_dir\":\"S\",\"pressure\":1020,\"precip\":0,\"humidity\":60,\"cloudcover\":75,\"feelslike\":20,\"uv_index\":8,\"visibility\":10,\"is_day\":\"yes\"}}",
+        "headers": {
+          "Date": "Sun, 08 Mar 2020 03:36:59 GMT",
+          "Content-Type": "application/json; Charset=UTF-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "Set-Cookie": "__cfduid=ded1f2289d6eb2157d4846cd934eb5fcf1583638619; expires=Tue, 07-Apr-20 03:36:59 GMT; path=/; domain=.weatherstack.com; HttpOnly; SameSite=Lax",
+          "x-apilayer-transaction-id": "d2c02f50-b0d7-43d9-a5e3-eb3ad8388b83",
+          "access-control-allow-methods": "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS",
+          "access-control-allow-origin": "*",
+          "x-request-time": "0.357",
+          "CF-Cache-Status": "DYNAMIC",
+          "Server": "cloudflare",
+          "CF-RAY": "570983d92c36a546-NRT"
+        },
+        "status_code": 200,
+        "type": "ok"
+      }
+    }
+  ]
