@@ -1,4 +1,4 @@
-defmodule Weatherapp.Service.Weatherstack do
+defmodule Weatherapp.Service.WeatherStack do
   @moduledoc """
     Calls the get /weather endpoint at weatherstack
   """
@@ -48,7 +48,7 @@ defmodule Weatherapp.Service.Weatherstack do
       {:ok, parsed_body} ->
         parse_body(parsed_body["current"])
       _ ->
-        %Weatherapp.Records.Weather{}
+        nil
     end
   end
 
