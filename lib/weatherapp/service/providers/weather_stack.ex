@@ -20,26 +20,23 @@ defmodule Weatherapp.Service.Providers.WeatherStack do
   defp request do
     url = "http://api.weatherstack.com/current"
 
-    # ====== Headers ======
-    headers = []
-
     # ====== Query Params ======
     params = [
-      {"access_key", "7061fa1a579a309e3d3f0cd889270def"},
+      {"access_key", access_key()},
       {"query", "Melbourne"},
     ]
 
-    Logger.info("Getting weather information from WeatherStack")
+    Logger.info("[WeatherStack] Getting weather information from WeatherStack")
 
     HTTPoison.start()
-    case HTTPoison.get(url, headers, params: params) do
+    case HTTPoison.get(url, [], params: params) do
       {:ok, response = %HTTPoison.Response{status_code: status_code, body: body}} ->
-        Logger.info("Response Status Code: #{status_code}")
-        Logger.info("Response Body: #{body}")
+        Logger.info("[WeatherStack] Response Status Code: #{status_code}")
+        Logger.info("[WeatherStack] Response Body: #{body}")
 
         {:ok, response}
       {:error, error = %HTTPoison.Error{reason: reason}} ->
-        Logger.info("Request failed: #{reason}")
+        Logger.info("[WeatherStack] Request failed: #{reason}")
 
         {:error, error}
     end
@@ -61,5 +58,10 @@ defmodule Weatherapp.Service.Providers.WeatherStack do
       wind_speed: parsed_body["wind_speed"],
       temperature_degrees: parsed_body["temperature"]
     }
+  end
+
+  defp access_key do
+    Application.get_env(:weatherapp, :weather_stack)
+    |> Map.get(:access_key)
   end
 end

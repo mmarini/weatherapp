@@ -18,9 +18,11 @@ defmodule Weatherapp.Cache.CacheTest do
   test "does not return a cached record due to expiry" do
     record = %Weatherapp.Records.Weather{temperature_degrees: 20, wind_speed: 10}
 
+    sleep_for = Cache.expiry_time_seconds() + 1
+
     Cache.start()
     Cache.insert(record)
-    Process.sleep(4000)
+    Process.sleep(sleep_for * 1000)
     assert(Cache.read == nil)
   end
 

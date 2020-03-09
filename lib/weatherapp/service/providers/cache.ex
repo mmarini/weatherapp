@@ -11,7 +11,7 @@ defmodule Weatherapp.Service.Providers.Cache do
 
   @impl Weatherapp.Service.WeatherProvider
   def get_weather do
-    Logger.info("Getting weather information from Cache")
+    Logger.info("[Cache] Getting weather information")
     {:ok, Cache.read()}
   end
 end

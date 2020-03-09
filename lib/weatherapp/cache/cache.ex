@@ -12,12 +12,14 @@ defmodule Weatherapp.Cache.Cache do
   end
 
   def insert(weather) do
-    start()
-    :ets.insert(:weather, {1, %CacheRecord{expiry_time: DateTime.add(DateTime.utc_now, 3, :second), record: weather}})
+    :ets.insert(:weather, {1,
+      %CacheRecord{
+        expiry_time: DateTime.add(DateTime.utc_now, expiry_time_seconds(), :second),
+        record: weather
+      }})
   end
 
   def read do
-    start()
     read_record()
   end
 
@@ -30,7 +32,6 @@ defmodule Weatherapp.Cache.Cache do
   end
 
   def clear do
-    start()
     :ets.delete(:weather, 1)
   end
 
@@ -57,6 +58,11 @@ defmodule Weatherapp.Cache.Cache do
   defp initialize_table(false) do
     Logger.info("Initializing table")
     :ets.new(:weather, [:set, :public, :named_table])
+  end
+
+  def expiry_time_seconds do
+    Application.get_env(:weatherapp, :cache)
+    |> Map.get(:timeout_seconds, 3)
   end
 
 end

@@ -35,4 +35,11 @@ defmodule Weatherapp.Service.WeatherService do
     {:ok, result}
   end
 
+  def format_as_json({:ok, nil}) do
+    Poison.encode!(%{error: "Weather services currently not reporting"})
+  end
+
+  def format_as_json({:ok, result}) do
+    Poison.encode!(result)
+  end
 end

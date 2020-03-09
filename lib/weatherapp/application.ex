@@ -5,16 +5,20 @@ defmodule Weatherapp.Application do
 
   use Application
 
+  alias Weatherapp.Cache.Cache
+
   @spec start(any, any) :: {:error, any} | {:ok, pid}
   def start(_type, _args) do
 
     import Supervisor.Spec, warn: false
 
+    Cache.start()
+
     children = [
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: Weatherapp.Endpoint,
-        options: [port: 4001]
+        options: [port: Application.get_env(:weatherapp, :port, 8080)]
       )
     ]
 

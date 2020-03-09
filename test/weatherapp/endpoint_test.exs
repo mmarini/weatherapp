@@ -13,7 +13,7 @@ defmodule Weatherapp.EndpointTest do
   describe "/weather" do
     test "it returns 200 with a message" do
       # Create a test connection
-      conn = conn(:get, "/weather", %{})
+      conn = conn(:get, "/v1/weather", %{})
 
       # Add weather to the cache
       record = %Weatherapp.Records.Weather{temperature_degrees: 50, wind_speed: 50}

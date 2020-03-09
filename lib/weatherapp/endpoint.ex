@@ -19,12 +19,13 @@ defmodule Weatherapp.Endpoint do
   # dispath responses
   plug :dispatch
 
-  get "/weather" do
+  get "/v1/weather" do
 
-    {:ok, result} = WeatherService.get_weather()
+    result = WeatherService.get_weather()
+      |> WeatherService.format_as_json()
 
     conn
-    |> send_resp(200, Poison.encode!(result))
+    |> send_resp(200, result)
   end
 
   match _ do

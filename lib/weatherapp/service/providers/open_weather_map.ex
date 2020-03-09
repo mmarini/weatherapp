@@ -20,27 +20,24 @@ defmodule Weatherapp.Service.Providers.OpenWeatherMap do
   defp request do
     url = "http://api.openweathermap.org/data/2.5/weather"
 
-    # ====== Headers ======
-    headers = []
-
     # ====== Query Params ======
     params = [
-      {"appId", "a7fbbdc4bf260fee1ca701b555778060"},
+      {"appId", app_id()},
       {"q", "melbourne,AU"},
       {"units", "metric"}
     ]
 
-    Logger.info("Getting weather information from OpenWeatherMap")
+    Logger.info("[OpenWeatherMap] Getting weather information")
 
     HTTPoison.start()
-    case HTTPoison.get(url, headers, params: params) do
+    case HTTPoison.get(url, [], params: params) do
       {:ok, response = %HTTPoison.Response{status_code: status_code, body: body}} ->
-        Logger.info("Response Status Code: #{status_code}")
-        Logger.info("Response Body: #{body}")
+        Logger.info("[OpenWeatherMap] Response Status Code: #{status_code}")
+        Logger.info("[OpenWeatherMap] Response Body: #{body}")
 
         {:ok, response}
       {:error, error = %HTTPoison.Error{reason: reason}} ->
-        Logger.info("Request failed: #{reason}")
+        Logger.info("[OpenWeatherMap] Request failed: #{reason}")
 
         {:error, error}
     end
@@ -64,5 +61,10 @@ defmodule Weatherapp.Service.Providers.OpenWeatherMap do
       wind_speed: wind["speed"],
       temperature_degrees: main["temp"]
     }
+  end
+
+  defp app_id do
+    Application.get_env(:weatherapp, :open_weather_map)
+    |> Map.get(:appId)
   end
 end
